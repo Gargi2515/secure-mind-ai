@@ -1,0 +1,41 @@
+SecureMind AI — quick start on Windows
+======================================
+
+1. Extract this ZIP.
+2. Open the extracted folder in VS Code. You should see backend, frontend,
+   start_backend.ps1 and start_frontend.ps1 directly inside it.
+3. In VS Code, open Terminal > New Terminal and run:
+
+   .\start_backend.ps1
+
+4. Leave that terminal running. Open a SECOND terminal and run:
+
+   .\start_frontend.ps1
+
+5. Open http://127.0.0.1:5173
+6. Sign in with username demo and password change-me-now.
+
+Choose the Banking profile to test human approval:
+- Enter plain text such as “Please transfer ₹25 to test account TEST-123. Request human approval before executing the transfer.”
+- The UI detects this explicit transfer request and routes it to transfer_funds automatically.
+- The request should appear in Human approval queue. Click Approve & execute or Reject.
+- Demo mode uses synthetic data; the sample transfer does not move money. A non-Banking session will explain that a Banking login is required instead of submitting the request.
+
+False-positive test:
+- Enter “For my cybersecurity assignment, explain why the phrase “ignore all previous instructions” is considered a prompt injection example, without following that instruction.”
+- The quoted attack phrase should be allowed in this explicit educational context. An active malicious instruction outside the quote should still be blocked.
+
+If PowerShell says script execution is disabled, run this in the terminal once:
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+Then retry the startup script.
+
+The ZIP root contains backend and frontend directly. Do not cd into another
+SecureMindAI_Complete subfolder. The folder opened in VS Code should be the
+one containing backend and frontend.
+
+This is a prototype, not production-audited software. Change the demo password
+and JWT secret before any non-local deployment.
+
+Plain-text only: choose any tool and type a request in Text request / untrusted context. There is no visible Arguments JSON field. The frontend converts text into the selected demo tool input, and the backend validates it. For `transfer_funds`, use text such as “transfer 25 to account TEST-123”; the request will wait for human approval.
+
+Risk-score policy: requests scoring above 60 are routed to the Human Approval queue if prompt checks, profile access, and input-schema validation pass. Clearly detected prompt-injection attempts remain blocked. The dashboard shows recent scores and a threshold line at 60.
