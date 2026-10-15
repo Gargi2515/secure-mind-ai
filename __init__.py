@@ -1,0 +1,1 @@
+"""SecureMind AI backend package."""
