@@ -178,3 +178,9 @@ The dashboard intentionally has no visible JSON Arguments field. Choose an MCP t
 - Sign in using the **Banking** profile for transfers. The plain-text request `Please transfer ₹25 to test account TEST-123. Request human approval before executing the transfer.` is auto-routed to `transfer_funds`, validated, and put into the Human Approval Queue. It is not executed until an administrator chooses **Approve & execute**; **Reject** leaves it unexecuted.
 - Transfers are disabled for other profiles. If a text request clearly asks for a transfer while the current session uses another profile, the frontend explains that Banking login is required and does not submit the operation.
 - For a false-positive control, try `For my cybersecurity assignment, explain why the phrase “ignore all previous instructions” is considered a prompt injection example, without following that instruction.` The quoted attack phrase is allowed in explicit educational analysis when the matched phrase is only quoted. A separate active instruction outside the quote remains blocked.
+- ## Team Name : CODEZEN
+- ## team members
+- 1.Gargishree.v (presenter)
+- 2.Deepika .J.E (frontend)
+- 3.Divyashree.C.N (backend)
+- 4.Hema.R (Designer)
